@@ -9,7 +9,7 @@ import asyncio
 from random import uniform
 
 
-async def wait_random(max_delay=10):
+async def wait_random(max_delay: float = 10) -> float:
     """ returns a random number"""
     delay = uniform(0, max_delay)
     await asyncio.sleep(delay)
