@@ -8,7 +8,7 @@
 
 from typing import List
 import asyncio
-task_wait_random = __import__("3-tasks").task_wait_random
+task_wait_random = __import__('3-tasks').task_wait_random
 
 
 async def task_wait_n(n: int, max_delay: int) -> List[float]:
@@ -17,17 +17,9 @@ async def task_wait_n(n: int, max_delay: int) -> List[float]:
         (float values). The list of the delays should be in
         ascending order without using sort() because of concurrency.
     """
-    # make a list of the tasks
-    tasks = asyncio.as_completed([
-        asyncio.create_task(
-            task_wait_random(max_delay)
-        ) for _ in range(n)
-    ])
-    # create a list of delay times
+    tasks = [task_wait_random(max_delay) for _ in range(n)]
     wait_list = []
-    # loop thru the tasks and append to wait times
-    for task in tasks:
+    for task in asyncio.as_completed(tasks):
         result = await task
         wait_list.append(result)
-    # return wait times
     return wait_list
