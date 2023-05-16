@@ -11,7 +11,7 @@ class LIFOCache(BaseCaching):
     def __init__(self):
         """ new init func """
         super().__init__()
-        self.cache = []
+        self.queue = []
 
     def put(self, key, item):
         """
@@ -22,10 +22,10 @@ class LIFOCache(BaseCaching):
         """
         if key and item:
             if len(self.cache_data) >= self.MAX_ITEMS:
-                popper = self.cache.pop()
+                popper = self.queue.pop()
                 print(f"DISCARD: {popper}")
                 del self.cache_data[popper]
-            self.cache.append(key)
+            self.queue.append(key)
             self.cache_data[key] = item
 
     def get(self, key):

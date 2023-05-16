@@ -21,12 +21,12 @@ class LRUCache(BaseCaching):
             pops it off if it has
         """
         if key and item:
-            if len(self.cache_data) >= self.MAX_ITEMS:
+            if key in self.cache_data:
+                self.queue.remove(key)
+            elif len(self.cache_data) >= self.MAX_ITEMS:
                 popper = self.queue.pop(0)
                 print(f"DISCARD: {popper}")
                 del self.cache_data[popper]
-            if key in self.cache_data:
-                self.queue.remove(key)
             self.queue.append(key)
             self.cache_data[key] = item
 

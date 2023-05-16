@@ -11,7 +11,7 @@ class FIFOCache(BaseCaching):
     def __init__(self):
         """ new init func with cache list """
         super().__init__()
-        self.cache = []
+        self.queue = []
 
     def put(self, key, item):
         """
@@ -20,10 +20,10 @@ class FIFOCache(BaseCaching):
         """
         if key and item:
             if len(self.cache_data) >= self.MAX_ITEMS:
-                popper = self.cache.pop(0)
+                popper = self.queue.pop(0)
                 print(f"DISCARD: {popper}")
                 del self.cache_data[popper]
-            self.cache.append(key)
+            self.queue.append(key)
             self.cache_data[key] = item
 
     def get(self, key):
