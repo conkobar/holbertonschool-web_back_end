@@ -24,9 +24,9 @@ if auth_type == 'auth':
 def before_request():
     """ runs before every request """
     if not auth or not auth.require_auth(
-            request.path, [
-                '/api/v1/status/', '/api/v1/unauthorized/', '/api/v1/forbidden/'
-            ]
+        request.path, [
+            '/api/v1/status/', '/api/v1/unauthorized/', '/api/v1/forbidden/'
+        ]
     ):
         return
     # check for handlers now
