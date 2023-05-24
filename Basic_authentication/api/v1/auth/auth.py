@@ -4,7 +4,8 @@ authentication with python3
 """
 
 
-import request from Flask
+from flask import request
+from typing import List, TypeVar
 
 
 class Auth():
