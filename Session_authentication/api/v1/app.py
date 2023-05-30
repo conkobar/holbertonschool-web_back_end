@@ -26,17 +26,16 @@ if auth_type == 'basic_auth':
 @app.before_request
 def before_request():
     """ runs before every request """
-    if not auth or not auth.require_auth(
-        request.path, [
-            '/api/v1/status/', '/api/v1/unauthorized/', '/api/v1/forbidden/'
-        ]
-    ):
-        return
-    # check for handlers now
-    if not auth.authorization_header(request):
-        abort(401)
-    if not auth.current_user(request):
-        abort(403)
+    apples = [
+        '/api/v1/status/',
+        '/api/v1/unauthorized/',
+        '/api/v1/forbidden/',
+    ]
+    # check handlers
+    if auth and auth.require_auth(request.path, apples):
+        if auth.current_user(request) is None:
+            abort(401)
+        request.current_user = auth.current_user(request)
 
 
 @app.errorhandler(404)
