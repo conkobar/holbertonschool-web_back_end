@@ -33,6 +33,8 @@ def before_request():
     ]
     # check handlers
     if auth and auth.require_auth(request.path, apples):
+        if auth.authorization_header(request) is None:
+            abort(401)
         if not auth.current_user(request):
             abort(403)
         request.current_user = auth.current_user(request)
