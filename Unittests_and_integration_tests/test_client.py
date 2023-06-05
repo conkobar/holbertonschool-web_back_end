@@ -39,7 +39,7 @@ class TestGithubOrgClient(unittest.TestCase):
 
     @patch('client.get_json')
     def test_public_repos(self, mock_get_json):
-        """ Test public_repos method """
+        """ test public_repos method """
         mock_get_json.return_value = [{"name": "Test"}]
         with patch.object(
             GithubOrgClient,
@@ -53,6 +53,16 @@ class TestGithubOrgClient(unittest.TestCase):
                 ["Test"]
             )
             mock_get_json.assert_called_once()
+
+    @parameterized.expand([
+        ({'license': {'key': 'my_license'}}, 'my_license', True),
+        ({'license': {'key': 'other_license'}}, 'my_license', False)
+    ])
+    def test_has_license(self, repo, license_key, expected):
+        """ test has_license method """
+        self.assertEqual(
+            GithubOrgClient.has_license(repo, license_key), expected
+        )
 
 
 if __name__ == "__main__":
