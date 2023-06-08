@@ -32,7 +32,6 @@ def get_locale():
 
 
 app.config.from_object(Config)
-babel = Babel(app, locale_selector=get_locale)
 
 if __name__ == '__main__':
     app.run()
