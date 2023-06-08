@@ -19,18 +19,15 @@ class Config():
     BABEL_DEFAULT_TIMEZONE = 'UTC'
 
 
-@app.route('/', strict_slashes=False)
+@app.route('/')
 def index():
     """ homepage """
     return render_template('3-index.html')
 
 
-# @babel.localeselector
+@babel.localeselector
 def get_locale():
     """ Retrieves locale from request """
-    locale = request.args.get('locale')
-    if locale and locale in Config.LANGUAGES:
-        return locale
     return request.accept_languages.best_match(app.config['LANGUAGES'])
 
 

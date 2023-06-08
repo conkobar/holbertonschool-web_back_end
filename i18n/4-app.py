@@ -22,10 +22,10 @@ class Config():
 @app.route('/', strict_slashes=False)
 def index():
     """ homepage """
-    return render_template('3-index.html')
+    return render_template('4-index.html')
 
 
-# @babel.localeselector
+@babel.localeselector
 def get_locale():
     """ Retrieves locale from request """
     locale = request.args.get('locale')
