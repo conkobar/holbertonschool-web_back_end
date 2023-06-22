@@ -1,5 +1,5 @@
 -- creates procedure to find student average score
-DELIMITER / / CREATE PROCEDURE ComputeAverageScoreForUser(IN USER_ID INT) BEGIN DECLARE avg_score FLOAT;
+DELIMITER / / CREATE PROCEDURE ComputeAverageScoreForUser (IN user_id INT) BEGIN DECLARE avg_score FLOAT;
 
 SELECT
   AVG(score) INTO avg_score
