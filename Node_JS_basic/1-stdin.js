@@ -1,5 +1,5 @@
 // displays welcome message for new users
-console.log('Welcome to Holberton School, what is your name>');
+console.log('Welcome to Holberton School, what is your name?');
 
 process.stdin
   .on('readable', () => {
