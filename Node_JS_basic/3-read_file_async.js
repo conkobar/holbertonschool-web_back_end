@@ -42,6 +42,6 @@ async function countStudents(file) {
     };
   }
   return dict;
-};
+}
 
 module.exports = countStudents;
