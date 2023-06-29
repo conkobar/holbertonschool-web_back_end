@@ -20,3 +20,6 @@ def log_stats():
         print(f"\tmethod {method}: {logs.count_documents({'method': method})}")
     # print status check
     print(f"{status} status check")
+
+if __name__ == "__main__":
+    log_stats()
