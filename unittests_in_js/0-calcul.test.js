@@ -13,7 +13,7 @@ describe('calculateNumber', () => {
 
   it('second number rounded', () => {
     assert.strictEqual(calculateNumber(2, 3), 5);
-    assert.strictEqual(calculateNumber(2.5, 3), 5);
-    assert.strictEqual(calculateNumber(2.5, 3.5), 6);
-  })
+    assert.strictEqual(calculateNumber(1.3, 3), 4);
+    assert.strictEqual(calculateNumber(2.1, 3.5), 5);
+  });
 });
