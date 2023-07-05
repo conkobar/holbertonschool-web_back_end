@@ -9,7 +9,7 @@ function calculateNumber(type, a, b) {
   if (type === 'SUBTRACT') return Math.round(a) - Math.round(b);
   if (type === 'DIVIDE') {
     if (Math.round(a) === 0 || Math.round(b) === 0) {
-      throw new Error('Error');
+      return 'Error';
     }
     return Math.round(a) / Math.round(b);
   }
