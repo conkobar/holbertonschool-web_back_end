@@ -4,3 +4,5 @@ class AppController {
     response.send('Hello Holberton School!');
   }
 }
+
+export default AppController;

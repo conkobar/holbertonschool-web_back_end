@@ -1,13 +1,6 @@
 /* reads db asynchronously */
-const MongoClient = require('mongodb').MongoClient;
+import countStudents from '../3-read_file_async';
 
-async function readDatabase(fp) {
-  // read database asynchronously
-  let request = await MongoClient.connect(
-    'mongodb://localhost:27017/', (err, client) => {
-      if (err) throw err;
-      const db = client.db();
-    }
-  )
-  return request
-}
+const readDatabase = (fp) => countStudents(fp);
+
+export default readDatabase;
