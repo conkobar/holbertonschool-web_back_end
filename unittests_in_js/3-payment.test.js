@@ -5,7 +5,7 @@ const Utils = require('./utils');
 const sendPaymentRequestToApi = require('./3-payment');
 
 describe('sendPaymentRequestToApi', () => {
-  it('check that sendPaymentRequestToApi() === Utils.calculateNumber()', () => {
+  it('checks to see if the math used in sendPaymentRequestToApi(100, 20) is the same as Utils.calculateNumber("SUM", 100, 20)', () => {
     // make the desired response
     const res = sendPaymentRequestToApi(100, 20);
     // create the spies
