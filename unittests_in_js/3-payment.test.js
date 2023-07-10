@@ -1,8 +1,8 @@
 // test suite with sinon spy
 const sinon = require('sinon');
 const { expect } = require('chai');
-const Utils = require('./utils');
 const sendPaymentRequestToApi = require('./3-payment');
+const Utils = require('./utils');
 
 describe('sendPaymentRequestToApi', () => {
   it('checks to see if the math used in sendPaymentRequestToApi(100, 20) is the same as Utils.calculateNumber("SUM", 100, 20)', () => {
